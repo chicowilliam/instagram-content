@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme {
+  /* Surfaces */
+  --color-surface-0: #ffffff;
+  --color-surface-50: #fafafa;
+  --color-surface-100: #f5f5f5;
+  --color-surface-200: #ebebeb;
+  --color-surface-300: #e0e0e0;
+
+  /* Ink */
+  --color-ink-950: #0a0a0a;
+  --color-ink-900: #171717;
+  --color-ink-800: #262626;
+  --color-ink-700: #404040;
+  --color-ink-600: #525252;
+  --color-ink-500: #737373;
+  --color-ink-400: #a3a3a3;
+  --color-ink-300: #d4d4d4;
+
+  /* Accent — discreet cool gray-blue */
+  --color-accent-50: #f4f7fb;
+  --color-accent-100: #e8eef6;
+  --color-accent-200: #d0dceb;
+  --color-accent-400: #7a93b0;
+  --color-accent-500: #5b7391;
+  --color-accent-600: #455a75;
+  --color-accent-700: #36485e;
+
+  /* Semantic */
+  --color-success: #3d7a5f;
+  --color-warning: #9a7b4a;
+
+  /* Radii */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+
+  /* ── Editorial Mono ── warm paper + near black */
+  --color-paper: #eceae5;
+  --color-paper-dim: #e0ddd6;
+  --color-paper-deep: #d5d2ca;
+
+  /* ── Acid Bento ── neon on pure black */
+  --color-acid-black: #050505;
+  --color-acid-lime: #b8ff2e;
+  --color-acid-blue: #2b4bff;
+  --color-acid-orange: #ff4a1c;
+  --color-acid-violet: #7b3ff2;
+  --color-acid-yellow: #ffe500;
+  --color-acid-pink: #ff4fd8;
+
+  /* ── Techwear HUD ── electric blue + hot pink */
+  --color-tech-blue: #0b33f0;
+  --color-tech-deep: #0620a6;
+  --color-tech-pink: #ff2d8e;
+  --color-tech-yellow: #f5ff00;
+
+  /* ── Swiss Grotesk ── cream + signal red */
+  --color-swiss-cream: #efebe0;
+  --color-swiss-red: #c4141c;
+  --color-swiss-ink: #101010;
+
+  /* Typography */
+  --font-sans: "Geist", "Segoe UI", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+
+  /* Shadows — soft, premium */
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.04);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.04), 0 16px 40px rgb(0 0 0 / 0.06);
+  --shadow-inset: inset 0 1px 0 rgb(255 255 255 / 0.7);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: #ececef;
+    color: var(--color-ink-900);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  button {
+    font-family: inherit;
+  }
+}
+
+@layer utilities {
+  .gradient-mesh {
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgb(232 238 246 / 0.9), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 100% 10%, rgb(245 245 245 / 0.95), transparent 50%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, rgb(250 250 250 / 0.8), transparent 55%),
+      linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  }
+
+  .gradient-soft {
+    background: linear-gradient(145deg, #ffffff 0%, #f7f8fa 45%, #eef1f5 100%);
+  }
+
+  .gradient-dark {
+    background:
+      radial-gradient(ellipse 70% 50% at 20% 0%, rgb(70 90 120 / 0.25), transparent 55%),
+      linear-gradient(165deg, #141414 0%, #0a0a0a 100%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* ── Surface treatments per style ── */
+  .surface-editorial {
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 8%, rgb(255 255 255 / 0.55), transparent 60%),
+      linear-gradient(180deg, #efedE8 0%, #e6e3dd 100%);
+  }
+
+  .surface-techwear {
+    background:
+      radial-gradient(ellipse 65% 45% at 50% 30%, rgb(60 110 255 / 0.5), transparent 65%),
+      linear-gradient(170deg, #0d38ff 0%, #0b33f0 45%, #0722b4 100%);
+  }
+
+  .surface-swiss {
+    background: linear-gradient(180deg, #f2eee4 0%, #ece7db 100%);
+  }
+
+  /* ── Patterns ── */
+  .pattern-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .pattern-paper {
+    background-image: radial-gradient(rgb(16 16 16 / 0.05) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+
+  .pattern-checker {
+    background-image: conic-gradient(
+      #000 0deg 90deg,
+      #fff 90deg 180deg,
+      #000 180deg 270deg,
+      #fff 270deg 360deg
+    );
+    background-size: 28px 28px;
+  }
+
+  .pattern-stripes {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      currentColor 0 3px,
+      transparent 3px 9px
+    );
+  }
+
+  /* ── Sticker / outline display type (Acid) ── */
+  .sticker-outline {
+    -webkit-text-stroke: 4px #050505;
+    paint-order: stroke fill;
+    text-shadow: 6px 6px 0 #050505;
+  }
+
+  .sticker-outline-light {
+    -webkit-text-stroke: 3px #050505;
+    paint-order: stroke fill;
+  }
+}

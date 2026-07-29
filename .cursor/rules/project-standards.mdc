@@ -1,0 +1,44 @@
+---
+description: Regras obrigatórias de arquitetura, design e implementação do CMS
+alwaysApply: true
+---
+
+# Regras do projeto
+
+## Planejamento e estratégia
+
+- Nunca gerar código sem antes avaliar organização, experiência de uso, escalabilidade e impacto arquitetural.
+- Todo novo post deve passar por estratégia e brief antes da implementação.
+- Antes de implementar uma feature, definir responsabilidade, localização, reutilização e efeito no fluxo existente.
+- Explicar decisões importantes, incluindo motivos, impactos e trade-offs relevantes.
+
+## Arquitetura e escalabilidade
+
+- Este projeto é um CMS privado para produção de conteúdo, nunca um website, landing page ou portfólio.
+- Nunca quebrar, contornar ou duplicar a arquitetura existente.
+- Toda nova feature deve funcionar de forma sustentável para 1000+ posts e 5000+ slides.
+- Respeitar o fluxo: IDEA → BRIEF → COPY → DESIGN → REACT → PREVIEW → READY → PUBLISHED.
+- Nunca pular etapas do fluxo.
+
+## Design System
+
+- Nunca alterar o Design System para atender um post ou feature isolada.
+- Sempre reutilizar componentes, layouts, templates e tokens existentes.
+- Nunca criar componentes duplicados; antes de criar um componente, pesquisar por solução equivalente.
+- Criar componente novo somente quando houver responsabilidade reutilizável ainda não atendida.
+- Nunca utilizar cores, espaçamentos, tipografia, sombras ou estilos aleatórios.
+- Sempre seguir os tokens e a identidade visual estabelecida.
+- Todo conteúdo deve parecer parte da mesma marca.
+
+## Roadmap
+
+- Sempre que uma feature for concluída, marcar como concluída no `ROADMAP.md` na mesma entrega.
+- Ao iniciar uma feature nova ainda não listada, adicioná-la ao `ROADMAP.md` antes de implementar.
+- Nunca marcar como concluído o que estiver apenas parcialmente implementado; usar o estado parcial.
+
+## Implementação
+
+- Evitar HTML e lógica repetidos; extrair padrões realmente reutilizáveis.
+- Manter componentes focados, código limpo e responsabilidades claras.
+- Preservar compatibilidade com preview, exportação Playwright e biblioteca do CMS.
+- Validar alterações proporcionalmente ao risco e corrigir erros introduzidos.

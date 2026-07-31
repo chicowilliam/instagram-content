@@ -68,9 +68,38 @@ export const surfaces = {
   acid: 'bg-acid-black text-white',
   techwear: 'surface-techwear text-white',
   swiss: 'surface-swiss text-swiss-ink',
+  /** Tech Editorial Premium — navy/graphite canvas for Instagram carousels */
+  techEditorial: 'surface-tech-editorial text-te-ink',
 } as const
 
 export type Surface = keyof typeof surfaces
+
+/**
+ * Semantic color roles for Tech Editorial Premium.
+ * Prefer these class names over raw hex in post compositions.
+ */
+export const techEditorial = {
+  bg: 'bg-te-bg',
+  bgElevated: 'bg-te-elevated',
+  ink: 'text-te-ink',
+  inkMuted: 'text-te-muted',
+  inkFaint: 'text-te-faint',
+  accent: 'text-te-accent',
+  accentBg: 'bg-te-accent',
+  violet: 'text-te-violet',
+  violetBg: 'bg-te-violet',
+  cyan: 'text-te-cyan',
+  cyanBg: 'bg-te-cyan',
+  border: 'border-te-border',
+  glow: 'bg-te-glow',
+  /** Minimum readable body size on 1080 canvases */
+  minReadable: 'text-[27px] leading-[1.35] tracking-[-0.015em]',
+  display: 'text-[64px] leading-[1.05] tracking-[-0.04em] font-semibold',
+  displayLg: 'text-[72px] leading-[1.02] tracking-[-0.045em] font-semibold',
+  h1: 'text-[48px] leading-[1.1] tracking-[-0.035em] font-semibold',
+  h2: 'text-[36px] leading-[1.15] tracking-[-0.03em] font-semibold',
+  label: 'font-mono text-[14px] leading-[1.4] tracking-[0.18em] uppercase',
+} as const
 
 /**
  * Visual languages available in the studio.
@@ -96,6 +125,14 @@ export const visualStyles = {
   swiss: {
     label: 'Swiss Grotesk',
     note: 'Creme, vermelho sinal, grid rotacionado, numerais gigantes.',
+  },
+  techEditorial: {
+    label: 'Tech Editorial Premium',
+    note: 'Navy/grafite, tipografia quase branca, acentos elétricos controlados.',
+  },
+  editorialIntel: {
+    label: 'Editorial Web Intelligence',
+    note: 'Papel quente + ink, cobalt, signal orange; tipografia cartaz; zero card soup.',
   },
 } as const
 

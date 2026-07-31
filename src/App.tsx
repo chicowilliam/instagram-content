@@ -8,6 +8,7 @@ import {
   PostsPage,
   PostDetailPage,
   PostVariantsPage,
+  Post001ReviewPage,
   IdeasPage,
   TemplatesPage,
   StoriesPage,
@@ -120,6 +121,7 @@ export default function App() {
 
         <Route path="/post/:id" element={<PreviewPage />} />
         <Route path="/post/:id/variants" element={<PostVariantsPage />} />
+        <Route path="/post/001/review" element={<Post001ReviewPage />} />
         <Route path="/export/:id" element={<ExportPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

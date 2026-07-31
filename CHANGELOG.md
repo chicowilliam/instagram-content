@@ -6,6 +6,8 @@ Todas as mudanças relevantes deste CMS são documentadas aqui.
 
 ### Adicionado
 
+- **Aura UX diagnostic asset** — Slide 02 usa imagem bakeada em `public/assets/post-001/aura-ux-diagnostic.png` (sem anotações React)
+- **Aura bad crops** — `BadWebsiteHeroCrop`, `BadWebsiteContactCrop`, `BadWebsiteFrame`, `AnnotatedBadWebsite` (clínica estética); Slide 02 usa só o crop do hero
 - **Swiss Editorial System** — identidade única dos posts; análise em `docs/swiss-editorial-analysis.md`
 - **Palette System** — 6 famílias (`swiss-classic` default do Post 001) em `design-system/swiss-editorial.ts`
 - **Mock sites** — `CafeBadWebsite` + `CafeGoodWebsite` (Casa Nôa) como assets reais

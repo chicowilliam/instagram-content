@@ -1,0 +1,6 @@
+export { Slide01Cover } from './Slide01Cover'
+export { Slide02Problem } from './Slide02Problem'
+export { Slide03Comparison } from './Slide03Comparison'
+export { Slide04Principles } from './Slide04Principles'
+export { Slide05Presentation } from './Slide05Presentation'
+export { Story01Hook, Story02Problem, Story03Cta } from './stories'

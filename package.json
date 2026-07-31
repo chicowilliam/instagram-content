@@ -17,10 +17,14 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "html-to-image": "^1.11.13",
+    "lenis": "^1.3.25",
     "lucide-react": "^1.27.0",
+    "motion": "^12.43.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router-dom": "^7.18.2"
+    "react-router-dom": "^7.18.2",
+    "react-wrap-balancer": "^1.1.1",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

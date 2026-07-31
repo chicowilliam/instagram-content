@@ -1,138 +1,105 @@
 import {
-  AmbientPanel,
-  AnnotationMark,
-  BackgroundSystem,
-  BrowserCutout,
-  EditorialBand,
-  FadedNumber,
-  ShapeCut,
+  CropMarks,
+  EditorialGrid,
+  EditorialTexture,
   SignatureFooterMinimal,
-  TechnicalLabel,
-  WebAuditTag,
-  WebsiteFragment,
-  siteUrl,
 } from '@/components/art-direction'
+import {
+  AuraBadHeroShot,
+  AuraGoodHeroShot,
+} from '@/components/mocksites/aura-bad/AuraComparisonShots'
 import { typeScale } from '@/design-system'
 import { SlideShell, TOTAL, copy } from './shared'
 
 /**
- * Slide 03 — COMPARAÇÃO · Swiss Editorial
+ * Slide 03 — COMPARAÇÃO (correção cirúrgica)
  *
- * visualConcept:
- * - tópico: mesmo negócio, duas percepções
- * - metáfora: sobreposição diagonal bad × good
- * - hero: dois browsers em escalas diferentes (não side-by-side)
- * - environment: paper + banda + cunha
- * - tensão: fio vermelho entre as duas versões
- * - paleta: swiss-classic apenas
+ * Mesma empresa: Aura Estética Avançada (ruim × boa).
+ * Split editorial ~45/55, sem sobreposição excessiva, ângulo ≤ 2°.
  */
 export function Slide03Comparison() {
   return (
-    <SlideShell>
-      <BackgroundSystem
-        ghostWord="PERCEPÇÃO"
-        section=""
-        atmosphere={
-          <>
-            <AmbientPanel className="top-[360px] right-0 h-[640px] w-[400px]" />
-            <ShapeCut
-              shape="wedge"
-              color="bg-editorial-ink/[0.045]"
-              className="-left-[160px] bottom-[120px] size-[420px]"
-            />
-            <EditorialBand
-              color="bg-signal-red/18"
-              className="top-[338px] right-[56px] left-[56px] h-px"
-            />
-            <FadedNumber className="right-[34px] bottom-[120px]">03</FadedNumber>
-          </>
-        }
-      />
+    <SlideShell className="bg-editorial-cream">
+      <EditorialTexture tone="paper" />
+      <EditorialGrid tone="paper" inset={56} className="opacity-35" />
+      <CropMarks inset={36} />
 
-      <div className="absolute top-[68px] left-[56px] right-[56px] z-20 flex items-start justify-between">
-        <div>
-          <TechnicalLabel marker="03/05" className="mb-5">
-            Comparação
-          </TechnicalLabel>
-          {copy.s3.lines.map((line) => (
-            <p key={line} className={`${typeScale.display.sm} text-editorial-ink uppercase`}>
-              {line}
-            </p>
-          ))}
-        </div>
-        <div className="flex flex-col items-end gap-2 pt-2">
-          {copy.s3.labels.map((label) => (
-            <TechnicalLabel key={label} size="xs">
-              {label}
-            </TechnicalLabel>
-          ))}
-        </div>
+      {/* Título */}
+      <div className="absolute top-[56px] right-[56px] left-[56px] z-20">
+        <p className="mb-5 font-mono text-[21px] tracking-[0.18em] text-editorial-ink/50 uppercase">
+          03/05 · Comparação
+        </p>
+        {copy.s3.lines.map((line) => (
+          <p key={line} className={`${typeScale.display.sm} text-editorial-ink`}>
+            {line}
+          </p>
+        ))}
+        <p className="mt-4 font-mono text-[22px] tracking-[0.1em] text-editorial-ink/45 uppercase">
+          Mesmas informações. Outra hierarquia.
+        </p>
       </div>
 
-      {/* A — improvisada: maior, atrás, parcialmente cortada pela borda */}
-      <div className="absolute top-[370px] -left-[80px] z-10">
-        <div className="relative">
-          <WebAuditTag className="absolute -top-6 left-20 z-30 bg-editorial-ink text-white">
-            A — improvisada
-          </WebAuditTag>
-          <BrowserCutout
-            url={siteUrl('cafeteria')}
-            width={780}
-            angle={-9}
-            className="shadow-[14px_18px_0_0_rgb(12_12_12/0.12)]"
+      {/* Eixos */}
+      <div className="absolute top-[320px] right-[56px] left-[56px] z-20 flex flex-wrap gap-x-6 gap-y-2 border-y border-editorial-ink/15 py-3">
+        {['01 Mensagem', '02 Hierarquia', '03 Ação', '04 Percepção'].map((axis) => (
+          <span
+            key={axis}
+            className="font-mono text-[21px] tracking-[0.12em] text-editorial-ink/55 uppercase"
           >
-            <WebsiteFragment business="cafeteria" quality="improvised" />
-          </BrowserCutout>
-          <AnnotationMark
-            label="parece amador"
-            length={100}
-            className="absolute top-[40px] left-[420px] z-30"
-          />
-        </div>
+            {axis}
+          </span>
+        ))}
       </div>
 
-      {/* B — intencional: atravessa em diagonal, nítida, sobreposta */}
-      <div className="absolute top-[560px] left-[260px] z-20">
+      {/* Split 45 / 55 */}
+      <div className="absolute top-[400px] right-[48px] left-[48px] z-10 grid grid-cols-[0.9fr_1.1fr] items-start gap-6">
+        {/* A — ruim */}
         <div className="relative">
-          <WebAuditTag className="absolute -top-6 right-8 z-30 bg-signal-red text-white">
-            B — intencional
-          </WebAuditTag>
-          <BrowserCutout
-            url={siteUrl('cafeteria')}
-            width={720}
-            angle={5}
-            className="shadow-[20px_20px_0_0_#0c0c0c]"
-          >
-            <WebsiteFragment business="cafeteria" quality="intentional" />
-          </BrowserCutout>
-          <AnnotationMark
-            label="hierarquia clara"
-            direction="left"
-            length={110}
-            className="absolute top-[60px] -right-2 z-30"
-          />
+          <span className="mb-3 inline-block bg-signal-red px-3 py-1.5 font-mono text-[22px] tracking-[0.14em] text-white uppercase">
+            A — Improvisada
+          </span>
+          <AuraBadHeroShot width={440} angle={-1} />
+          <ul className="mt-4 space-y-1.5 font-mono text-[20px] tracking-[0.06em] text-editorial-ink/70 uppercase">
+            <li>· Mensagem disputada</li>
+            <li>· Múltiplos CTAs</li>
+            <li>· Excesso de estilos</li>
+          </ul>
+        </div>
+
+        {/* Divisor */}
+        <span
+          aria-hidden
+          className="absolute top-10 bottom-10 left-1/2 w-px -translate-x-1/2 bg-editorial-ink/20"
+        />
+
+        {/* B — boa */}
+        <div className="relative pt-2">
+          <span className="mb-3 inline-block bg-editorial-ink px-3 py-1.5 font-mono text-[22px] tracking-[0.14em] text-white uppercase">
+            B — Intencional
+          </span>
+          <AuraGoodHeroShot width={500} angle={1} />
+          <ul className="mt-4 space-y-1.5 font-mono text-[20px] tracking-[0.06em] text-editorial-ink/70 uppercase">
+            <li>· Proposta clara</li>
+            <li>· CTA principal evidente</li>
+            <li>· Linguagem consistente</li>
+          </ul>
         </div>
       </div>
 
-      {/* Fio de tensão entre as duas percepções */}
-      <span
-        aria-hidden
-        className="absolute top-[620px] left-[180px] z-30 h-[5px] w-[300px] origin-left -rotate-[16deg] bg-signal-red"
-      />
-
-      {/* Microcopy editorial */}
-      <p
-        className={`${typeScale.mono.xs} absolute top-[500px] right-[56px] z-20 max-w-[160px] text-right text-editorial-ink/55`}
-      >
-        Mesma cafeteria.
+      {/* Frase auxiliar */}
+      <p className="absolute bottom-[130px] left-[56px] z-20 max-w-[520px] font-mono text-[24px] leading-[1.35] tracking-[0.04em] text-editorial-ink uppercase">
+        Mesma empresa.
         <br />
-        Só muda o cuidado.
+        Mesmo conteúdo.
+        <br />
+        Outra percepção.
       </p>
 
       <SignatureFooterMinimal
         current={3}
         total={TOTAL}
-        category="Demonstração · ed. 001"
+        domain="viniciuswilliam.dev"
+        category="Comparação · ed. 001"
         className="absolute right-[56px] bottom-[46px] left-[56px] z-40"
       />
     </SlideShell>

@@ -1,17 +1,14 @@
 import { cn } from '@/lib/cn'
+import { CafeBadWebsite, CafeGoodWebsite } from '@/components/mocksites'
 import type { FakeBusiness, SiteQuality } from './types'
 
 /**
  * WebsiteFragment — interface de um negócio fictício, desenhada em React.
  *
- * Função na direção: é o **protagonista visual** de todos os slides do Post 001.
- * As quatro referências dependem de um objeto fotográfico ou 3D; o nosso objeto
- * é um site, porque o assunto é site. Isso resolve a regra de realismo sem CSS
- * fingindo ser fotografia e sem depender de URL externa no export.
+ * Post 001 usa cafeteria (Casa Nôa) via CafeBadWebsite / CafeGoodWebsite.
+ * Outros nichos mantêm fragmentos legados até migrarem para assets dedicados.
  *
- * As duas qualidades existem para que a diferença seja percebida **antes da
- * leitura**, inclusive na miniatura do feed: `improvised` é simétrico, apertado
- * e de baixo contraste; `intentional` tem hierarquia, respiro e um único foco.
+ * Contrato: docs/swiss-editorial-analysis.md
  */
 
 interface Copy {
@@ -22,9 +19,7 @@ interface Copy {
   readonly support: string
   readonly action: string
   readonly facts: readonly string[]
-  /** Legenda da área de imagem da versão intencional */
   readonly imageCaption: string
-  /** Versão improvisada: excesso de links e mensagem sem foco */
   readonly noisyNav: readonly string[]
   readonly noisyBanner: string
   readonly noisyBlurb: string
@@ -52,7 +47,7 @@ const businesses: Record<FakeBusiness, Copy> = {
     ],
     noisyBanner: 'SEJA BEM-VINDO AO NOSSO SITE!!!',
     noisyBlurb:
-      'Somos uma empresa que atua no ramo de cafeteria e alimentação com o objetivo de oferecer os melhores produtos e serviços com qualidade e atendimento diferenciado para toda a família, buscando sempre a excelência e a satisfação total dos nossos clientes em todos os momentos.',
+      'Somos uma empresa que atua no ramo de cafeteria e alimentação com o objetivo de oferecer os melhores produtos e serviços com qualidade e atendimento diferenciado para toda a família.',
   },
   clinica: {
     name: 'Clínica Alvo',
@@ -75,7 +70,7 @@ const businesses: Record<FakeBusiness, Copy> = {
     ],
     noisyBanner: 'BEM-VINDO À NOSSA CLÍNICA!!!',
     noisyBlurb:
-      'Nossa clínica atua no segmento de saúde oferecendo serviços médicos com profissionais altamente qualificados e equipamentos modernos, visando sempre o bem-estar e a satisfação dos nossos pacientes com atendimento humanizado e de excelência.',
+      'Nossa clínica atua no segmento de saúde oferecendo serviços médicos com profissionais altamente qualificados.',
   },
   escritorio: {
     name: 'Braga & Reis',
@@ -98,7 +93,7 @@ const businesses: Record<FakeBusiness, Copy> = {
     ],
     noisyBanner: 'BEM-VINDO AO NOSSO ESCRITÓRIO!!!',
     noisyBlurb:
-      'O escritório atua de forma ampla em diversas áreas do direito prestando serviços de consultoria e assessoria jurídica para pessoas físicas e jurídicas com ética, comprometimento e dedicação em cada caso apresentado pelos nossos clientes.',
+      'O escritório atua de forma ampla em diversas áreas do direito prestando serviços de consultoria e assessoria jurídica.',
   },
 }
 
@@ -115,8 +110,15 @@ export function WebsiteFragment({
   quality?: SiteQuality
   className?: string
 }) {
-  const copy = businesses[business]
+  if (business === 'cafeteria') {
+    return quality === 'intentional' ? (
+      <CafeGoodWebsite className={className} />
+    ) : (
+      <CafeBadWebsite className={className} />
+    )
+  }
 
+  const copy = businesses[business]
   return quality === 'intentional' ? (
     <IntentionalSite copy={copy} className={className} />
   ) : (
@@ -124,11 +126,6 @@ export function WebsiteFragment({
   )
 }
 
-/**
- * Versão intencional: uma mensagem, uma ação, hierarquia clara.
- * Lida como “organizada” mesmo desfocada, porque a massa visual é assimétrica
- * e existe um único ponto escuro de atenção.
- */
 function IntentionalSite({ copy, className }: { copy: Copy; className?: string }) {
   return (
     <div className={cn('bg-white text-[#14120f]', className)}>
@@ -162,7 +159,6 @@ function IntentionalSite({ copy, className }: { copy: Copy; className?: string }
           </div>
         </div>
 
-        {/* Área de imagem do site: bloco chapado com retícula, não fotografia falsa */}
         <div className="relative aspect-[4/5] w-full bg-[#e8e3d9]">
           <div className="pointer-events-none absolute inset-0 pattern-halftone text-black/25 opacity-25" />
           <div className="absolute inset-x-6 bottom-6 flex items-end justify-between">
@@ -183,18 +179,12 @@ function IntentionalSite({ copy, className }: { copy: Copy; className?: string }
   )
 }
 
-/**
- * Versão improvisada: tudo centralizado, tudo do mesmo tamanho, contraste baixo.
- * Não é “feia por acaso” — cada defeito corresponde a uma anotação do Slide 2:
- * hierarquia fraca, ação escondida, excesso de informação, contraste insuficiente.
- */
 function ImprovisedSite({ copy, className }: { copy: Copy; className?: string }) {
   return (
     <div className={cn('bg-[#f4f4f2] text-center text-[#6b6b6b]', className)}>
       <div className="bg-[#dcdcda] py-2 text-[11px] tracking-[0.06em] text-[#8a8a8a]">
         Site em construção — algumas páginas podem não funcionar
       </div>
-
       <div className="px-6 pt-6 pb-3">
         <p className="font-serif text-[26px] leading-[1.1] font-bold tracking-[0.02em] text-[#4a4a4a]">
           {copy.name}
@@ -203,33 +193,25 @@ function ImprovisedSite({ copy, className }: { copy: Copy; className?: string })
           Qualidade e tradição para você e sua família
         </p>
       </div>
-
       <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 border-y border-[#d8d8d6] px-6 py-3 text-[12px] text-[#7d8fa8] underline">
         {copy.noisyNav.map((item) => (
           <span key={item}>{item}</span>
         ))}
       </nav>
-
       <p className="px-6 pt-5 text-[19px] font-bold tracking-[0.04em] text-[#8b8b8b]">
         {copy.noisyBanner}
       </p>
-
       <p className="mx-auto max-w-[620px] px-6 pt-3 text-[12px] leading-[1.75] text-[#9b9b9b]">
         {copy.noisyBlurb}
       </p>
-
       <div className="mt-4 grid grid-cols-4 gap-2 px-6">
         {[0, 1, 2, 3].map((index) => (
           <div key={index} className="aspect-[4/3] bg-[#e4e4e2]" />
         ))}
       </div>
-
       <p className="px-6 pt-4 pb-3 text-[11px] text-[#a8a8a8]">
-        Para mais informações{' '}
-        <span className="text-[#7d8fa8] underline">clique aqui</span> ou entre em
-        contato pelo e-mail
+        Para mais informações <span className="text-[#7d8fa8] underline">clique aqui</span>
       </p>
-
       <div className="border-t border-[#d8d8d6] px-6 py-3 text-[10px] text-[#adadad]">
         {copy.url} · Todos os direitos reservados
       </div>

@@ -57,7 +57,7 @@ export function Story02Problem() {
         </p>
       </div>
       <div className="absolute bottom-[200px] left-14 right-14">
-        <BrowserCutout url={siteUrl('cafeteria')} width={560} angle={4} className="grayscale">
+        <BrowserCutout url={siteUrl('cafeteria')} width={560} angle={4}>
           <WebsiteFragment business="cafeteria" quality="improvised" />
         </BrowserCutout>
       </div>
@@ -72,7 +72,7 @@ export function Story03Cta() {
       <TechnicalLabel
         marker="STORY 03"
         tone="ink"
-        accent="text-electric-cobalt"
+        accent="text-signal-red"
         className="absolute top-16 left-14"
       >
         Continuidade
@@ -87,7 +87,7 @@ export function Story03Cta() {
           Clareza. Cuidado. Direção.
         </p>
         <p
-          className={`${typeScale.body.md} mt-10 text-white underline decoration-electric-cobalt decoration-2 underline-offset-8`}
+          className={`${typeScale.body.md} mt-10 text-white underline decoration-signal-red decoration-2 underline-offset-8`}
         >
           Acompanhe os próximos conteúdos.
         </p>

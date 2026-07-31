@@ -15,6 +15,14 @@ export { typeScale, palette, base, modes, budget } from './art-direction'
 export type { ArtMode } from './art-direction'
 
 export {
+  swissPalettes,
+  swissTokens,
+  getSwissPalette,
+  POST_001_PALETTE,
+} from './swiss-editorial'
+export type { SwissPaletteId, SwissPalette } from './swiss-editorial'
+
+export {
   radius,
   stack,
   pad,

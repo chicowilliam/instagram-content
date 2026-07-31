@@ -1,8 +1,9 @@
 /**
- * SWISS TECH EDITORIAL — direção de arte dos posts.
+ * SWISS EDITORIAL — direção de arte dos posts.
  *
- * Contrato: docs/reference-style-analysis.md
- * Pesos: 50% Editorial Fashion · 30% Swiss Poster · 15% Cyber Technical · 5% Y2K controlado
+ * Contrato: docs/swiss-editorial-analysis.md
+ * Identidade: Swiss Editorial somente.
+ * Paletas: `swiss-editorial.ts` (6 famílias). Post 001 = swiss-classic.
  *
  * Este arquivo governa apenas as peças de Instagram.
  * O chrome do CMS continua usando `tokens.ts` / `semantic.ts`.
@@ -88,13 +89,15 @@ export const base = {
 } as const
 
 /**
- * Quatro modos visuais reutilizáveis.
- * Cada slide tem exatamente um modo dominante.
+ * Modos de composição Swiss Editorial.
+ * CYBER / Y2K mantidos só como legado de tipagem — não usar em posts novos.
  */
 export type ArtMode =
   | 'EDITORIAL_FASHION'
   | 'SWISS_DISRUPTION'
+  /** @deprecated Fora da identidade Swiss Editorial */
   | 'CYBER_TECHNICAL'
+  /** @deprecated Fora da identidade Swiss Editorial */
   | 'NEO_Y2K_MODULAR'
 
 interface ModeSpec {

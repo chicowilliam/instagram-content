@@ -91,13 +91,17 @@
   --color-editorial-primary: #14120f;
 
   /* Typography */
-  /* ── Swiss Tech Editorial (direção de arte dos posts) ── */
+  /* ── Swiss Editorial (direção de arte dos posts) ── */
   --color-signal-red: #c4141c;
   --color-electric-cobalt: #0b33f0;
   --color-neon-lime: #b8ff2e;
   --color-hot-magenta: #ff2d8e;
   --color-muted-gray: #8a8378;
   --color-editorial-cream: #f1ece1;
+  --color-burnt-orange: #c45a1a;
+  --color-burgundy: #6e1f2c;
+  --color-muted-teal: #3d6b66;
+  --color-acid-lime: #b8ff2e;
 
   --font-sans: "Geist", "Segoe UI", system-ui, sans-serif;
   --font-serif: "Instrument Serif", Georgia, serif;
@@ -317,18 +321,27 @@
    * Fonte única de verdade da paleta dos posts.
    */
   :root {
-    --editorial-ink: var(--color-editorial-ink);
-    --editorial-paper: var(--color-editorial-cream);
+    /* Swiss Editorial — nomes canônicos */
+    --paper: var(--color-editorial-cream);
+    --ink: var(--color-editorial-ink);
     --signal-red: var(--color-signal-red);
-    --electric-cobalt: var(--color-electric-cobalt);
-    --neon-lime: var(--color-neon-lime);
-    --hot-magenta: var(--color-hot-magenta);
+    --cobalt: var(--color-electric-cobalt);
+    --burnt-orange: var(--color-burnt-orange);
+    --burgundy: var(--color-burgundy);
+    --acid-lime: var(--color-acid-lime);
+    --muted-teal: var(--color-muted-teal);
     --muted-gray: var(--color-muted-gray);
-    --border-editorial: var(--color-editorial-border);
+    --line-subtle: var(--color-editorial-border);
     --text-primary: var(--color-editorial-primary);
     --text-secondary: var(--color-editorial-secondary);
 
-    /* Retrocompatibilidade com a tentativa anterior */
+    /* Aliases legados (slides existentes) */
+    --editorial-ink: var(--ink);
+    --editorial-paper: var(--paper);
+    --electric-cobalt: var(--cobalt);
+    --neon-lime: var(--acid-lime);
+    --hot-magenta: var(--color-hot-magenta);
+    --border-editorial: var(--line-subtle);
     --brand-cobalt: var(--color-brand-cobalt);
     --signal-orange: var(--color-signal-orange);
     --signal-lime: var(--color-signal-lime);

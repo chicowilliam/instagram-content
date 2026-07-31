@@ -58,13 +58,17 @@ export {
 
 export {
   SignatureFooterMinimal,
+  SignatureFooterSplit,
   SignatureLabel,
   SignatureVertical,
+  SignatureDomainOnly,
   SignatureDomain,
 } from './signatures'
 
 export { ImageMask, EditorialCutout, BrowserCutout, WebAuditTag } from './cutouts'
 
 export { WebsiteFragment, siteUrl } from './WebsiteFragment'
+
+export { CafeBadWebsite, CafeGoodWebsite } from '@/components/mocksites'
 
 export type { ArtProps, ArtTone, FakeBusiness, SiteQuality } from './types'

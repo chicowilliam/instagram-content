@@ -6,6 +6,15 @@ Todas as mudanças relevantes deste CMS são documentadas aqui.
 
 ### Adicionado
 
+- **Swiss Editorial System** — identidade única dos posts; análise em `docs/swiss-editorial-analysis.md`
+- **Palette System** — 6 famílias (`swiss-classic` default do Post 001) em `design-system/swiss-editorial.ts`
+- **Mock sites** — `CafeBadWebsite` + `CafeGoodWebsite` (Casa Nôa) como assets reais
+- **Brand Signature** — `SignatureFooterSplit` + `SignatureDomainOnly`
+- Slides 02–05 do Post 001 realinhados à paleta swiss-classic (sem cobalt/lime/Y2K)
+- Plano W32 com **8 Stories** sugeridos por dia
+
+### Adicionado (anterior)
+
 - **Sistema Editorial Instagram** — rotina 3 carrosséis + 1 Reel, Stories sustentáveis, pilares, regra de repost, fluxo de produção, estrutura de registros e plano `2026-W32`
 - **Background + Brand Signature System** — fundos em 4 camadas, atmosfera editorial, quatro assinaturas reutilizáveis e footer premium aplicado ao Post 001
 - Contrato **Visual Engine** em `VISUAL_ENGINE.md` — concepção temática obrigatória por slide (`visualConcept`, hero object, metáfora, environment, tensão, anti-card, teste visual)

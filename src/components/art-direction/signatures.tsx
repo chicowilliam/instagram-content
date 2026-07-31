@@ -1,3 +1,12 @@
+/**
+ * Brand Signature System — Swiss Editorial
+ *
+ * 1. SignatureFooterMinimal — default do Post 001
+ * 2. SignatureFooterSplit — nome | progresso | domínio
+ * 3. SignatureVertical — crédito na borda
+ * 4. SignatureDomainOnly — domínio como marca
+ */
+
 import { cn } from '@/lib/cn'
 import { typeScale } from '@/design-system'
 import type { ArtTone } from './types'
@@ -31,11 +40,7 @@ function Progress({
   )
 }
 
-/**
- * Opção A — assinatura horizontal editorial.
- * Escolhida para o Post 001 por equilibrar autoria, progresso e domínio sem
- * parecer barra de sistema ou link solto.
- */
+/** 1 — assinatura horizontal editorial (default). */
 export function SignatureFooterMinimal({
   name = 'Vinícius William',
   domain = 'viniciuswilliam.dev',
@@ -61,12 +66,17 @@ export function SignatureFooterMinimal({
       <div className="grid grid-cols-[1fr_auto_1fr] items-end gap-6">
         <div className="flex flex-col gap-1">
           <span className={cn(typeScale.mono.xs, tonePrimary[tone])}>{name}</span>
-          <span className={cn('font-sans text-[18px] font-light tracking-[0.08em] uppercase', toneSecondary[tone])}>
+          <span
+            className={cn(
+              'font-sans text-[18px] font-light tracking-[0.08em] uppercase',
+              toneSecondary[tone],
+            )}
+          >
             {descriptor}
           </span>
         </div>
         <div className="flex flex-col items-center gap-2">
-          <span className={cn('h-1 w-1', tone === 'paper' ? 'bg-signal-red' : 'bg-neon-lime')} />
+          <span className={cn('h-1 w-1', tone === 'paper' ? 'bg-signal-red' : 'bg-white')} />
           <Progress current={current} total={total} tone={tone} />
         </div>
         <div className="flex flex-col items-end gap-1 text-right">
@@ -82,7 +92,45 @@ export function SignatureFooterMinimal({
   )
 }
 
-/** Opção B — etiqueta premium compacta para composições densas. */
+/** 2 — split tipográfico forte: autoria × progresso × domínio. */
+export function SignatureFooterSplit({
+  name = 'Vinícius William',
+  domain = 'viniciuswilliam.dev',
+  current = 1,
+  total = 5,
+  tone = 'paper',
+  className,
+}: {
+  name?: string
+  domain?: string
+  current?: number
+  total?: number
+  tone?: ArtTone
+  className?: string
+}) {
+  return (
+    <footer className={cn('flex flex-col gap-3', className)}>
+      <div className={cn('h-px w-full', tone === 'paper' ? 'bg-editorial-ink' : 'bg-white')} />
+      <div className="grid grid-cols-3 items-end gap-4">
+        <span className={cn(typeScale.mono.sm, tonePrimary[tone])}>{name}</span>
+        <span
+          className={cn(
+            typeScale.mono.sm,
+            'text-center',
+            tone === 'paper' ? 'text-signal-red' : 'text-white',
+          )}
+        >
+          {String(current).padStart(2, '0')} — {String(total).padStart(2, '0')}
+        </span>
+        <span className={cn(typeScale.mono.sm, 'text-right tracking-[0.14em]', tonePrimary[tone])}>
+          {domain}
+        </span>
+      </div>
+    </footer>
+  )
+}
+
+/** Etiqueta compacta (uso pontual). */
 export function SignatureLabel({
   title = 'Autoria',
   name = 'Vinícius William',
@@ -106,7 +154,7 @@ export function SignatureLabel({
         className,
       )}
     >
-      <span className={tone === 'paper' ? 'bg-signal-red' : 'bg-neon-lime'} />
+      <span className={tone === 'paper' ? 'bg-signal-red' : 'bg-white'} />
       <div className="flex flex-col gap-1 px-5 py-4">
         <span className={cn('font-mono text-[15px] tracking-[0.22em] uppercase', toneSecondary[tone])}>
           {title}
@@ -122,7 +170,7 @@ export function SignatureLabel({
   )
 }
 
-/** Opção C — crédito vertical para bordas com pouco espaço horizontal. */
+/** 3 — crédito vertical para bordas. */
 export function SignatureVertical({
   name = 'Vinícius William',
   domain = 'viniciuswilliam.dev',
@@ -153,8 +201,8 @@ export function SignatureVertical({
   )
 }
 
-/** Opção D — domínio como marca principal para layouts mais silenciosos. */
-export function SignatureDomain({
+/** 4 — domínio como marca principal. */
+export function SignatureDomainOnly({
   domain = 'viniciuswilliam.dev',
   descriptor = 'design · tecnologia · estratégia',
   tone = 'paper',
@@ -168,9 +216,14 @@ export function SignatureDomain({
   const [brand, tld = 'dev'] = domain.split('.')
   return (
     <div className={cn('flex flex-col gap-2', className)}>
-      <span className={cn('font-display text-[36px] font-semibold leading-none tracking-[-0.035em]', tonePrimary[tone])}>
+      <span
+        className={cn(
+          'font-display text-[36px] font-semibold leading-none tracking-[-0.035em]',
+          tonePrimary[tone],
+        )}
+      >
         {brand}
-        <span className={tone === 'paper' ? 'text-signal-red' : 'text-neon-lime'}>.{tld}</span>
+        <span className={tone === 'paper' ? 'text-signal-red' : 'text-white'}>.{tld}</span>
       </span>
       <span className={cn('font-mono text-[16px] tracking-[0.2em] uppercase', toneSecondary[tone])}>
         {descriptor}
@@ -178,3 +231,6 @@ export function SignatureDomain({
     </div>
   )
 }
+
+/** @deprecated Use SignatureDomainOnly */
+export const SignatureDomain = SignatureDomainOnly

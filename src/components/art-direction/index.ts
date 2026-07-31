@@ -69,6 +69,17 @@ export { ImageMask, EditorialCutout, BrowserCutout, WebAuditTag } from './cutout
 
 export { WebsiteFragment, siteUrl } from './WebsiteFragment'
 
-export { CafeBadWebsite, CafeGoodWebsite } from '@/components/mocksites'
+export {
+  CafeBadWebsite,
+  CafeGoodWebsite,
+  BadWebsiteFrame,
+  BadWebsiteHeroCrop,
+  BadWebsiteContactCrop,
+  BadWebsitePromoCrop,
+  AnnotatedBadWebsite,
+  AuraBadHero,
+  AuraBadContact,
+  AuraBadPromo,
+} from '@/components/mocksites'
 
 export type { ArtProps, ArtTone, FakeBusiness, SiteQuality } from './types'

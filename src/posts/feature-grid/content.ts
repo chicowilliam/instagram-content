@@ -3,22 +3,32 @@ export const content = {
   title: 'Seu cliente percebe a qualidade antes de ler.',
   subtitle:
     'Três decisões visuais que aumentam a confiança na sua empresa.',
+  /** Accent substring for TypographyAccent on the cover */
+  titleAccent: 'qualidade',
   features: [
     {
       title: 'Clareza',
       description: 'O visitante entende rapidamente o que sua empresa oferece.',
       icon: 'spark',
+      weight: 'hero' as const,
     },
     {
       title: 'Cuidado',
       description: 'Detalhes consistentes comunicam organização e profissionalismo.',
       icon: 'layers',
+      weight: 'secondary' as const,
     },
     {
       title: 'Direção',
       description: 'O próximo passo — contato, reserva ou orçamento — fica evidente.',
       icon: 'zap',
+      weight: 'accent' as const,
     },
+  ],
+  decisionSteps: [
+    { label: 'Primeiro olhar', hint: 'Atenção' },
+    { label: 'Sensação', hint: 'Confiança' },
+    { label: 'Decisão', hint: 'Ação' },
   ],
   slides: {
     problem: {

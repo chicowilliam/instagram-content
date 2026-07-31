@@ -18,6 +18,9 @@ shots
 # Automated PNG exports
 exports
 
+# Chat transcript backups
+chat-backup
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

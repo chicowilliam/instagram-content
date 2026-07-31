@@ -30,6 +30,19 @@ alwaysApply: true
 - Sempre seguir os tokens e a identidade visual estabelecida.
 - Todo conteúdo deve parecer parte da mesma marca.
 
+## Direção de arte
+
+- Seguir `ART_DIRECTION.md` e `VISUAL_ENGINE.md` em todo layout.
+- Antes de implementar qualquer slide, definir `visualConcept` (tópico, metáfora, hero object, environment, detalhes, contraste, estilo, paleta, composição).
+- Nenhum slide pode ser só título + subtítulo + cards + ícones + fundo genérico.
+- Cada slide precisa de: hero object (30–70%), metáfora visual, environment, supporting details e tensão narrativa.
+- Nunca usar referência única: combinar 1 Landing Page + 1 Branding + 1 Editorial + 1 UI, declarando as escolhas antes de implementar.
+- Sintetizar conceitos; nunca copiar.
+- Após criar qualquer tela, fazer crítica brutal com notas de 0 a 10 em originalidade, impacto, elegância, premium, tecnologia, Apple feeling, Linear feeling, compartilhamento e Instagram appeal.
+- Se qualquer nota ficar abaixo de 9,5, refazer automaticamente até todas atingirem 9,5.
+- Aplicar o teste visual de `VISUAL_ENGINE.md`; se 3+ respostas forem negativas, refazer a composição.
+- Stack visual aprovada: Lucide, Rough.js, Motion (só preview), Sharp (assets/export), SVG próprio, 21st (só referência). Proibido Three.js / R3F.
+
 ## Roadmap
 
 - Sempre que uma feature for concluída, marcar como concluída no `ROADMAP.md` na mesma entrega.

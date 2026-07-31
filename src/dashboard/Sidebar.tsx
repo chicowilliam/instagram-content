@@ -3,6 +3,7 @@ import { cn } from '@/lib/cn'
 import { CMS_NAV } from '@/cms/nav'
 import { libraryStats } from '@/posts/catalog'
 import { openIdeas } from '@/ideas'
+import { ThemeToggle } from './ThemeToggle'
 
 const icons: Record<string, string> = {
   grid: '▦',
@@ -14,6 +15,7 @@ const icons: Record<string, string> = {
   download: '↓',
   check: '✓',
   calendar: '◷',
+  chart: '◈',
   settings: '⚙',
 }
 
@@ -45,7 +47,7 @@ export function Sidebar() {
               cn(
                 'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition',
                 isActive
-                  ? 'bg-ink-950 text-white'
+                  ? 'bg-ink-950 text-surface-0'
                   : 'text-ink-500 hover:bg-surface-50 hover:text-ink-900',
               )
             }
@@ -58,8 +60,9 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <div className="border-t border-surface-200 px-5 py-4">
-        <p className="text-[11px] leading-relaxed text-ink-300">
+      <div className="flex flex-col gap-3 border-t border-surface-200 px-4 py-4">
+        <ThemeToggle />
+        <p className="px-1 text-[11px] leading-relaxed text-ink-300">
           Fluxo: Idea → Brief → Copy → Design → React → Preview → Ready →
           Published
         </p>

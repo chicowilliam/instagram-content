@@ -46,10 +46,18 @@ export function PostDetailPage() {
         <div className="flex flex-wrap gap-2">
           <Link
             to={`/post/${post.id}`}
-            className="rounded-full bg-ink-950 px-4 py-2 text-xs font-medium text-white"
+            className="rounded-full bg-ink-950 px-4 py-2 text-xs font-medium text-surface-0"
           >
             Preview
           </Link>
+          {post.id === '001' ? (
+            <Link
+              to={`/post/${post.id}/variants`}
+              className="rounded-full border border-surface-300 bg-surface-0 px-4 py-2 text-xs font-medium text-ink-700"
+            >
+              Variantes de capa
+            </Link>
+          ) : null}
           <code className="rounded-full border border-surface-200 px-4 py-2 font-mono text-xs text-ink-500">
             npm run export -- {post.id}
           </code>
@@ -67,7 +75,7 @@ export function PostDetailPage() {
                 key={status}
                 className={`rounded-full border px-3 py-1 text-[11px] uppercase tracking-[0.12em] ${
                   current
-                    ? 'border-ink-900 bg-ink-950 text-white'
+                    ? 'border-ink-900 bg-ink-950 text-surface-0'
                     : active
                       ? 'border-surface-300 bg-surface-100 text-ink-600'
                       : 'border-surface-200 text-ink-300'

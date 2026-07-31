@@ -99,7 +99,7 @@ function StatusBadge({ status }: { status: ContentStatus }) {
     <span
       className={cn(
         'shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[0.12em]',
-        status === 'PUBLISHED' && 'bg-ink-950 text-white',
+        status === 'PUBLISHED' && 'bg-ink-950 text-surface-0',
         status === 'READY' && 'bg-emerald-50 text-emerald-800',
         status !== 'PUBLISHED' &&
           status !== 'READY' &&

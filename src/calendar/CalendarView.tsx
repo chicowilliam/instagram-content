@@ -175,7 +175,7 @@ function WeekCard({ week }: { week: CalendarWeek }) {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-2.5">
-            <span className="rounded-full bg-ink-950 px-2.5 py-0.5 font-mono text-[11px] tracking-[0.08em] text-white">
+            <span className="rounded-full bg-ink-950 px-2.5 py-0.5 font-mono text-[11px] tracking-[0.08em] text-surface-0">
               S{String(week.week).padStart(2, '0')}
             </span>
             <span className="rounded-full border border-surface-200 px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-[0.12em] text-ink-500">
@@ -319,7 +319,7 @@ function FilterChip({
       className={cn(
         'flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition',
         active
-          ? 'border-ink-900 bg-ink-950 text-white'
+          ? 'border-ink-900 bg-ink-950 text-surface-0'
           : 'border-surface-200 bg-surface-0 text-ink-500 hover:border-surface-300 hover:text-ink-900',
       )}
     >

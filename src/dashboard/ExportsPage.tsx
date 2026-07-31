@@ -20,9 +20,9 @@ export function ExportsPage() {
       </header>
 
       {focused ? (
-        <div className="mb-8 rounded-2xl border border-ink-900 bg-ink-950 px-5 py-4 text-sm text-white">
+        <div className="mb-8 rounded-2xl border border-ink-900 bg-ink-950 px-5 py-4 text-sm text-surface-0">
           Exportar <strong>{focused.id}</strong> — {focused.title}
-          <pre className="mt-3 font-mono text-xs text-white/70">
+          <pre className="mt-3 font-mono text-xs text-surface-0/70">
             npm run export -- {focused.id}
           </pre>
         </div>

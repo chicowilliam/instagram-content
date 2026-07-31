@@ -7,12 +7,14 @@ import {
   DashboardPage,
   PostsPage,
   PostDetailPage,
+  PostVariantsPage,
   IdeasPage,
   TemplatesPage,
   StoriesPage,
   ReelsPage,
   ExportsPage,
   PublishedPage,
+  AnalyticsPage,
   SettingsPage,
 } from '@/dashboard'
 
@@ -71,6 +73,7 @@ function ExportPage() {
     <ExportModeProvider value={true}>
       <div
         data-export-root
+        data-export-mode="true"
         data-post-id={post.id}
         data-post-slug={post.slug}
         style={{
@@ -98,24 +101,28 @@ function CalendarPage() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route element={<CmsShell />}>
-        <Route index element={<DashboardPage />} />
-        <Route path="posts" element={<PostsPage />} />
-        <Route path="posts/:id" element={<PostDetailPage />} />
-        <Route path="ideas" element={<IdeasPage />} />
-        <Route path="templates" element={<TemplatesPage />} />
-        <Route path="stories" element={<StoriesPage />} />
-        <Route path="reels" element={<ReelsPage />} />
-        <Route path="exports" element={<ExportsPage />} />
-        <Route path="published" element={<PublishedPage />} />
-        <Route path="calendar" element={<CalendarPage />} />
-        <Route path="settings" element={<SettingsPage />} />
-      </Route>
+    <div data-app-root>
+      <Routes>
+        <Route element={<CmsShell />}>
+          <Route index element={<DashboardPage />} />
+          <Route path="posts" element={<PostsPage />} />
+          <Route path="posts/:id" element={<PostDetailPage />} />
+          <Route path="ideas" element={<IdeasPage />} />
+          <Route path="templates" element={<TemplatesPage />} />
+          <Route path="stories" element={<StoriesPage />} />
+          <Route path="reels" element={<ReelsPage />} />
+          <Route path="exports" element={<ExportsPage />} />
+          <Route path="published" element={<PublishedPage />} />
+          <Route path="calendar" element={<CalendarPage />} />
+          <Route path="analytics" element={<AnalyticsPage />} />
+          <Route path="settings" element={<SettingsPage />} />
+        </Route>
 
-      <Route path="/post/:id" element={<PreviewPage />} />
-      <Route path="/export/:id" element={<ExportPage />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+        <Route path="/post/:id" element={<PreviewPage />} />
+        <Route path="/post/:id/variants" element={<PostVariantsPage />} />
+        <Route path="/export/:id" element={<ExportPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </div>
   )
 }

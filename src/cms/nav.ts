@@ -15,5 +15,6 @@ export const CMS_NAV: NavItem[] = [
   { id: 'exports', label: 'Exportações', path: '/exports', icon: 'download' },
   { id: 'published', label: 'Publicado', path: '/published', icon: 'check' },
   { id: 'calendar', label: 'Calendário', path: '/calendar', icon: 'calendar' },
+  { id: 'analytics', label: 'Analytics', path: '/analytics', icon: 'chart' },
   { id: 'settings', label: 'Configurações', path: '/settings', icon: 'settings' },
 ]

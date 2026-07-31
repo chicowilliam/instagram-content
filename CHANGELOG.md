@@ -6,6 +6,7 @@ Todas as mudanças relevantes deste CMS são documentadas aqui.
 
 ### Adicionado
 
+- **Story 02 Swiss vertical** — quatro zonas (cabeçalho / título / Aura ruim / fechamento), review em `/post/001/story-review`
 - **Aura UX diagnostic asset** — Slide 02 usa imagem bakeada em `public/assets/post-001/aura-ux-diagnostic.png` (sem anotações React)
 - **Aura bad crops** — `BadWebsiteHeroCrop`, `BadWebsiteContactCrop`, `BadWebsiteFrame`, `AnnotatedBadWebsite` (clínica estética); Slide 02 usa só o crop do hero
 - **Swiss Editorial System** — identidade única dos posts; análise em `docs/swiss-editorial-analysis.md`

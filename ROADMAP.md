@@ -39,7 +39,7 @@ Legenda: ✅ concluído · 🟡 parcial · ⬜ não iniciado
 
 - 🟡 **Sistema Editorial Instagram** — regra persistente, estrutura de registros e plano W32 prontos; falta migrar calendário/CMS legado de 2 para 1 Reel semanal
 - ✅ **Background + Brand Signature System** — 4 camadas de fundo, 4 assinaturas, 3 opções em `/variants` e `SignatureFooterMinimal` aplicada aos 5 slides
-- 🟡 **Swiss Editorial System** — slides 02–03 corrigidos (Aura ruim×boa, review em `/post/001/review`); faltam PNGs reais em `public/assets/comparisons/` e polish do Slide 01
+- 🟡 **Swiss Editorial System** — slides 02–03 corrigidos (Aura ruim×boa, review em `/post/001/review`); Story 02 vertical em quatro zonas + review em `/post/001/story-review`; faltam PNGs reais em `public/assets/comparisons/` e polish do Slide 01
 - ✅ **Swiss Tech Editorial (Post 001)** — capa A (GAZU) aprovada; 5 slides + 3 stories; `visualConcept` em `docs/post-001-visual-concepts.md`; B/C preservadas em `/variants`
 - 🟡 **Visual Engine** — contrato em `VISUAL_ENGINE.md` (hero object, metáfora, environment, tensão, `visualConcept`, anti-card, teste visual, stack Lucide/Rough/Motion/Sharp/SVG/21st); faltam Rough.js + Sharp, biblioteca temática em `visuals/` e tipo `visualConcept` no pipeline
 - ⬜ **Rough.js** — anotações manuais (círculos, setas) estáticas no export
